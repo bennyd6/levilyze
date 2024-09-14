@@ -9,7 +9,7 @@ function App() {
   // Function to handle the button click
   const handleAnalyzeClick = async () => {
     try {
-      const response = await fetch('http://localhost:5000/analyze', {
+      const response = await fetch('https://levilyze-backend.onrender.com/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,6 +24,7 @@ function App() {
       setResult("An error occurred while analyzing the time complexity.");
     }
   };
+  
 
   return (
     <>

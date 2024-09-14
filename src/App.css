@@ -17,6 +17,18 @@ body{
   align-items: center;
 }
 
+.main h1{
+  color: #5fa5b4;
+}
+
+textarea{
+  width: 50%;
+  height: 500px;
+  border-radius: 25px;
+  overflow-x: hidden;
+  resize: none;
+}
+
 
 /* -------------------Navbar---------------------------------------- */
 

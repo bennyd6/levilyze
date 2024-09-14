@@ -7,23 +7,26 @@ function App() {
   const [result, setResult] = useState(''); // State to store the result
 
   // Function to handle the button click
-  const handleAnalyzeClick = async () => {
-    try {
-      const response = await fetch('https://levilyze-backend.onrender.com/analyze', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ code }), // Send the code as JSON
-      });
-      
-      const data = await response.json(); // Receive the response
-      setResult(data.result); // Set the result in the state
-    } catch (error) {
-      console.error('Error analyzing time complexity:', error);
-      setResult("An error occurred while analyzing the time complexity.");
-    }
-  };
+  // Ensure this matches what the backend expects
+const handleAnalyzeClick = async () => {
+  try {
+    const response = await fetch('https://levilyze-backend.onrender.com/analyze', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ code }), // Ensure this field matches what backend expects
+    });
+    
+    const data = await response.json();
+    console.log('Response data:', data); // Log the response data
+    setResult(data.result); // Set the result in the state
+  } catch (error) {
+    console.error('Error analyzing time complexity:', error);
+    setResult("An error occurred while analyzing the time complexity.");
+  }
+};
+
   
 
   return (

@@ -1,33 +1,68 @@
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 function App() {
   const [code, setCode] = useState(''); // State to store code input
-  const [result, setResult] = useState(''); // State to store the result
+  const [result1, setResult1] = useState('');
+  const [result2, setResult2] = useState('');
+  const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
 
-  // Function to handle the button click
-  // Ensure this matches what the backend expects
-const handleAnalyzeClick = async () => {
-  try {
-    const response = await fetch('https://levilyze-backend.onrender.com/analyze', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ code }), // Ensure this field matches what backend expects
-    });
-    
-    const data = await response.json();
-    console.log('Response data:', data); // Log the response data
-    setResult(data.result); // Set the result in the state
-  } catch (error) {
-    console.error('Error analyzing time complexity:', error);
-    setResult("An error occurred while analyzing the time complexity.");
-  }
-};
+  const handleClose1 = () => setShow1(false);
+  const handleClose2 = () => setShow2(false);
+  const handleShow1 = () => setShow1(true);
+  const handleShow2 = () => setShow2(true);
 
-  
+  const timeComplexity = async () => {
+    handleShow1();
+    await handleAnalyzeClickTime();
+  };
+
+  const memoryComplexity = async () => {
+    handleShow2();
+    await handleAnalyzeClickMemory();
+  };
+
+  const handleAnalyzeClickTime = async () => {
+    try {
+      const response = await fetch('https://levilyze-backend.onrender.com/analyze/time', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code }), // Ensure this field matches what backend expects
+      });
+      
+      const data = await response.json();
+      console.log('Response data:', data); // Log the response data
+      setResult1(data.result); // Adjust based on backend response
+    } catch (error) {
+      console.error('Error analyzing time complexity:', error);
+      setResult1("An error occurred while analyzing the time complexity.");
+    }
+  };
+
+  const handleAnalyzeClickMemory = async () => {
+    try {
+      const response = await fetch('https://levilyze-backend.onrender.com/analyze/memory', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code }), // Ensure this field matches what backend expects
+      });
+      
+      const data = await response.json();
+      console.log('Response data:', data); // Log the response data
+      setResult2(data.result); // Adjust based on backend response
+    } catch (error) {
+      console.error('Error analyzing memory:', error);
+      setResult2("An error occurred while analyzing the memory taken.");
+    }
+  };
 
   return (
     <>
@@ -44,11 +79,25 @@ const handleAnalyzeClick = async () => {
           onChange={(e) => setCode(e.target.value)} 
         />
         <br />
-        <button onClick={handleAnalyzeClick}>Analyze Time Complexity</button>
-        <div>
-          <h2>Result:</h2>
-          <p>{result}</p>
-        </div>
+        <Button variant="primary" onClick={timeComplexity}>
+          Analyze Time Complexity
+        </Button>
+        <Modal show={show1} onHide={handleClose1}>
+          <Modal.Header closeButton>
+            <Modal.Title>Time Complexity</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{result1}</Modal.Body>
+        </Modal>
+
+        <Button variant="secondary" onClick={memoryComplexity}>
+          Analyze Memory Taken
+        </Button>
+        <Modal show={show2} onHide={handleClose2}>
+          <Modal.Header closeButton>
+            <Modal.Title>Memory</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{result2}</Modal.Body>
+        </Modal>
       </div>
     </>
   );

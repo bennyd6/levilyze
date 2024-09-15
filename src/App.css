@@ -3,7 +3,9 @@ body{
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  background-color: #faf5f0;
+  background-image: url('./assets/circle-scatter-haikei-1.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-x: hidden;
 }
 
@@ -28,21 +30,53 @@ textarea{
   border-radius: 25px;
   overflow-x: hidden;
   resize: none;
+  padding: 20px;
+}
+.btn-hldr{
+  width: 50vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
+.main-btn{
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #201E43;
+  border: 0px;
+  color: #ffff;
+}
+
+.main-btn:hover{
+  background-color: #86abb4;
+  color: black;
+}
 
 /* -------------------Navbar---------------------------------------- */
 
 .nav-main{
+  margin-top: 10px;
   width: 50vw;
-  height: 10vh;
+  height: 50px;
+  backdrop-filter: blur(50px);
+  border-radius: 25px;
 }
 
 .nav-main h1{
-  color: #c85d5d;
+  color: #4772ae;
   font-weight: 1000;
-  font-size:20px;
+  font-size:30px;
 }
 
 
-/* -------------------- */
+/* -------------------Footer----------------------- */
+
+.foot-main{
+  width: 100vw;
+  height: 10vh;
+  background-color: black;
+  color: #ffff;
+  text-align: center;
+}

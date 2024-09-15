@@ -79,19 +79,20 @@ function App() {
           onChange={(e) => setCode(e.target.value)} 
         />
         <br />
-        <Button variant="primary" onClick={timeComplexity}>
-          Analyze Time Complexity
-        </Button>
+        <div className="btn-hldr">
+          <button className="main-btn" onClick={timeComplexity}>
+              Time Complexity
+          </button>
+          <button className='main-btn' onClick={memoryComplexity}>
+              Memory Taken
+          </button>
+        </div>
         <Modal show={show1} onHide={handleClose1}>
           <Modal.Header closeButton>
             <Modal.Title>Time Complexity</Modal.Title>
           </Modal.Header>
           <Modal.Body>{result1}</Modal.Body>
         </Modal>
-
-        <Button variant="secondary" onClick={memoryComplexity}>
-          Analyze Memory Taken
-        </Button>
         <Modal show={show2} onHide={handleClose2}>
           <Modal.Header closeButton>
             <Modal.Title>Memory</Modal.Title>

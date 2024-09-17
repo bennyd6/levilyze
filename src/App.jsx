@@ -86,6 +86,7 @@ function App() {
           <button className='main-btn' onClick={memoryComplexity}>
               Memory Taken
           </button>
+      
         </div>
         <Modal show={show1} onHide={handleClose1}>
           <Modal.Header closeButton>

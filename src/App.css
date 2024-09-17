@@ -294,3 +294,10 @@ span:nth-child(7){
       width: 30%;
     }
   }
+
+  /* ---------------modal----------------- */
+
+
+  .modal-dialog {
+    margin-top: 40vh;
+  }

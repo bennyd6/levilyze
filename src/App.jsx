@@ -102,18 +102,36 @@ function App() {
         <div className="tag">
           <h1 className='tag'>with &#9829; BENNY</h1>
         </div>
-        <Modal show={show1} onHide={handleClose1}>
-          <Modal.Header closeButton>
-            <Modal.Title>Time Complexity</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>{result1}</Modal.Body>
-        </Modal>
-        <Modal show={show2} onHide={handleClose2}>
-          <Modal.Header closeButton>
-            <Modal.Title>Memory</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>{result2}</Modal.Body>
-        </Modal>
+        <Modal
+  show={show1}
+  onHide={handleClose1}
+  dialogClassName="modal-dialog-scrollable"
+  size="lg" /* Adjust size as needed */
+  style={{ maxWidth: "100vw", margin: "0 auto" }} /* Prevent horizontal overflow */
+>
+  <Modal.Header closeButton>
+    <Modal.Title>Time Complexity</Modal.Title>
+  </Modal.Header>
+  <Modal.Body style={{ maxHeight: "80vh", overflowY: "auto" }}>
+    {result1}
+  </Modal.Body>
+</Modal>
+
+<Modal
+  show={show2}
+  onHide={handleClose2}
+  dialogClassName="modal-dialog-scrollable"
+  size="lg"
+  style={{ maxWidth: "100vw", margin: "0 auto" }} /* Prevent horizontal overflow */
+>
+  <Modal.Header closeButton>
+    <Modal.Title>Memory</Modal.Title>
+  </Modal.Header>
+  <Modal.Body style={{ maxHeight: "80vh", overflowY: "auto" }}>
+    {result2}
+  </Modal.Body>
+</Modal>
+
       </div>
     </>
   );

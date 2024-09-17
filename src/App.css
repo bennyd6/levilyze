@@ -45,13 +45,16 @@ textarea{
   width: 200px;
   height: 50px;
   border-radius: 15px;
-  background-color: #333333;
-  border: 0px;
+  background-color: black;
+  /* border: 1px solid white; */
   color: #ffff;
+  box-shadow: rgb(255, 255, 255) 0px 0px 15px;
 }
 
 .main-btn:hover{
-  background-color: #86abb4;
+  background-color: white;
+  box-shadow: 0;
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px;
   color: black;
 }
 

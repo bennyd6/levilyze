@@ -3,22 +3,22 @@ body{
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  background-image: url('./assets/blob-scene-haikei (1).svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ------------------main------------------------------------------ */
 
 .main{
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
+  background-image: url('./assets/blob-scene-haikei (1).svg');
   justify-content: flex-start;
+  background-repeat: no-repeat;
+  background-size: cover;
   align-items: center;
-  
+  z-index: 0;
 }
 
 .main h1{
@@ -32,6 +32,7 @@ textarea{
   overflow-x: hidden;
   resize: none;
   padding: 20px;
+  z-index: 2;
 }
 .btn-hldr{
   width: 50vw;
@@ -48,6 +49,7 @@ textarea{
   background-color: black;
   /* border: 1px solid white; */
   color: #ffff;
+  z-index: 2;
   box-shadow: rgb(255, 255, 255) 0px 0px 15px;
 }
 
@@ -102,6 +104,8 @@ textarea{
 }
 
 
+/* -------------------------------shooting star-------------------------- */
+
 *
 {
     margin: 0;
@@ -113,19 +117,19 @@ body{
 }
 section{
     position: absolute;
-    z-index: -10;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
-    height: 150vh;
+    height: 110vh;
     /* https://lh3.googleusercontent.com/ka_5IYJDRkXZnbptxq64LPuggGL5FM8gnpJlsuSiOQh4b39kMkiRbVfX8iK8bjMg5SLkdfoix09P60wyFjN2=w681-h614 */
     /* background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg"); */
-/*   background-color:black; */
-    background-size: cover;
-    animation: animateBg 50s linear infinite;
+   /* background-color:black;  */
+     background-size: cover;
+     animation: animateBg 50s linear infinite;
 }
 
-@keyframes animateBg{
+ @keyframes animateBg{
     0%,100%{
         transform: scale(1);
     }

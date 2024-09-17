@@ -75,6 +75,21 @@ textarea{
 
 /* -------------------Footer----------------------- */
 
+.tag{
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.tag h1{
+  color: #4c4c4c;
+}
+
+
 .foot-main{
   width: 100vw;
   height: 10vh;

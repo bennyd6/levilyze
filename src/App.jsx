@@ -68,6 +68,18 @@ function App() {
     <>
       <div className="main">
         <Navbar />
+        <section>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </section>
         <br />
         <textarea 
           name="code" 
@@ -86,7 +98,9 @@ function App() {
           <button className='main-btn' onClick={memoryComplexity}>
               Memory Taken
           </button>
-      
+        </div>
+        <div className="tag">
+          <h1 className='tag'>with &#9829; BENNY</h1>
         </div>
         <Modal show={show1} onHide={handleClose1}>
           <Modal.Header closeButton>
